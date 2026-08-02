@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Pookie ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ffd6e7,#ffe8f1,#ffeef7);
+overflow:hidden;
+}
+
+.container{
+
+background:white;
+padding:40px;
+border-radius:25px;
+text-align:center;
+width:90%;
+max-width:550px;
+box-shadow:0 15px 40px rgba(255,105,180,.3);
+position:relative;
+z-index:5;
+
+}
+
+h1{
+
+color:#ff4d94;
+font-size:40px;
+
+}
+
+h2{
+
+margin-top:15px;
+color:#444;
+
+}
+
+p{
+
+margin:15px 0;
+font-size:18px;
+color:#666;
+
+}
+
+button{
+
+padding:15px 35px;
+border:none;
+border-radius:40px;
+cursor:pointer;
+font-size:18px;
+margin:15px;
+transition:.3s;
+
+}
+
+#yes{
+
+background:#ff4d94;
+color:white;
+
+}
+
+#yes:hover{
+
+transform:scale(1.1);
+
+}
+
+#no{
+
+background:#d9d9d9;
+position:absolute;
+
+}
+
+#photo{
+
+display:none;
+width:260px;
+margin-top:25px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+animation:fadeIn 1s;
+
+}
+
+#message{
+
+display:none;
+margin-top:20px;
+font-size:28px;
+color:#ff4d94;
+animation:fadeIn 1s;
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+.heart{
+
+position:absolute;
+font-size:25px;
+animation:float 6s linear forwards;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(100vh);
+opacity:0;
+
+}
+
+20%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-120vh);
+opacity:0;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Hi  💖</h1>
+
+<p>I have something special to ask you...</p>
+
+<h2>Will you go out with me? 🥹💕</h2>
+
+<button id="yes">Yes 💗</button>
+
+<button id="no">No 😶</button>
+
+<br>
+
+<img id="photo" src="pookie.jpeg" alt="Pookie">
+
+<div id="message">
+
+❤️ Yay!!<br><br>
+
+You just made me the happiest person alive! 💖<br>
+
+Can't wait to make beautiful memories with you 🌸
+
+</div>
+
+</div>
+
+<audio id="music">
+
+<source src="song.webm" type="audio/webm">
+
+</audio>
+
+<script>
+
+const no=document.getElementById("no");
+
+no.style.left="320px";
+no.style.top="210px";
+
+function moveButton(){
+
+const maxX=window.innerWidth-150;
+const maxY=window.innerHeight-80;
+
+const x=Math.random()*maxX;
+const y=Math.random()*maxY;
+
+no.style.left=x+"px";
+no.style.top=y+"px";
+
+}
+
+no.addEventListener("mouseover",moveButton);
+
+no.addEventListener("click",moveButton);
+
+document.getElementById("yes").addEventListener("click",function(){
+
+document.getElementById("photo").style.display="block";
+
+document.getElementById("message").style.display="block";
+
+document.getElementById("music").play();
+
+for(let i=0;i<80;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="💖";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(20+Math.random()*20)+"px";
+
+heart.style.animationDuration=(3+Math.random()*3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},6000);
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
